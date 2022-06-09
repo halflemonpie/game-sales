@@ -2,9 +2,151 @@ import React, { useEffect, useState } from "react";
 import Deal from "./Deal";
 import {Routes, Route, Link, Navigate} from 'react-router-dom'
 import axios from "axios";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
  function Home ({dealList, pageNumber, setPageNumber}) {
+        const [slides, setSlides] = useState([]);
+        let slidesDisplay;
+
+        // useEffect(() => {
+
+        
+        if (slides.length > 0) {
+            let slidesShow = [];
+            slidesShow = slides.filter((value, index, self) => index === self.findIndex((t) => (t.place === value.place && t.name === value.name)))
+            
+            const tags = slidesShow.map((item) => {
+                return item.genres
+            })
+            console.log(tags);
+
+            const handleTags = (index) => {
+                const tag = tags[index].map((item) => {
+                    return <li class="btn btn-primary mr-10">{item.description}</li>
+                })
+                return tag
+            }
+
+
+
+            slidesDisplay = (
+                <div id="carouselExampleDark" className="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+                    <div className="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="6" aria-label="Slide 7"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="7" aria-label="Slide 8"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="8" aria-label="Slide 9"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="9" aria-label="Slide 10"></button>
+                    </div>
+                    <div className="carousel-inner">
+                        <div className="carousel-item active">
+                        <img src={slidesShow[0].header_image} className="d-block w-100" alt="..." />
+                        <div className="carousel-caption d-none d-md-block bg-dark bg-gradient bg-opacity-25">
+                            <h5>{slidesShow[0].name}</h5>
+                            <ul>{handleTags(0)}</ul>
+                            
+                        </div>
+                        </div>
+
+                        <div className="carousel-item">
+                        <img src={slidesShow[1].header_image}  className="d-block w-100" alt="..." />
+                        <div className="carousel-caption d-none d-md-block bg-dark bg-gradient bg-opacity-25">
+                            <h5>{slidesShow[1].name}</h5>
+                            <ul>{handleTags(1)}</ul>
+                        </div>
+                        </div>
+
+                        <div className="carousel-item">
+                        <img src={slidesShow[2].header_image}  className="d-block w-100" alt="..." />
+                        <div className="carousel-caption d-none d-md-block bg-dark bg-gradient bg-opacity-25">
+                            <h5>{slidesShow[2].name}</h5>
+                            <ul>{handleTags(2)}</ul>
+                        </div>
+                        </div>
+
+                        <div className="carousel-item">
+                        <img src={slidesShow[3].header_image}  className="d-block w-100" alt="..." />
+                        <div className="carousel-caption d-none d-md-block bg-dark bg-gradient bg-opacity-25">
+                            <h5>{slidesShow[3].name}</h5>
+                            <ul>{handleTags(3)}</ul>
+                        </div>
+                        </div>
+
+                        <div className="carousel-item">
+                        <img src={slidesShow[4].header_image}  className="d-block w-100" alt="..." />
+                        <div className="carousel-caption d-none d-md-block bg-dark bg-gradient bg-opacity-25">
+                            <h5>{slidesShow[4].name}</h5>
+                            <ul>{handleTags(4)}</ul>
+                        </div>
+                        </div>
+
+                        <div className="carousel-item">
+                        <img src={slidesShow[5].header_image}  className="d-block w-100" alt="..." />
+                        <div className="carousel-caption d-none d-md-block bg-dark bg-gradient bg-opacity-25">
+                            <h5>{slidesShow[5].name}</h5>
+                            <ul>{handleTags(5)}</ul>
+                        </div>
+                        </div>
+
+                        <div className="carousel-item">
+                        <img src={slidesShow[6].header_image}  className="d-block w-100" alt="..." />
+                        <div className="carousel-caption d-none d-md-block bg-dark bg-gradient bg-opacity-25">
+                            <h5>{slidesShow[6].name}</h5>
+                            <ul>{handleTags(6)}</ul>
+                        </div>
+                        </div>
+
+                        <div className="carousel-item">
+                        <img src={slidesShow[7].header_image}  className="d-block w-100" alt="..." />
+                        <div className="carousel-caption d-none d-md-block bg-dark bg-gradient bg-opacity-25">
+                            <h5>{slidesShow[7].name}</h5>
+                            <ul>{handleTags(7)}</ul>
+                        </div>
+                        </div>
+
+                        <div className="carousel-item">
+                        <img src={slidesShow[8].header_image}  className="d-block w-100" alt="..." />
+                        <div className="carousel-caption d-none d-md-block bg-dark bg-gradient bg-opacity-25">
+                            <h5>{slidesShow[8].name}</h5>
+                            <ul>{handleTags(8)}</ul>
+                        </div>
+                        </div>
+
+                        <div className="carousel-item">
+                        <img src={slidesShow[9].header_image}  className="d-block w-100" alt="..." />
+                        <div className="carousel-caption d-none d-md-block bg-dark bg-gradient bg-opacity-25">
+                            <h5>{slidesShow[9].name}</h5>
+                            <ul>{handleTags(9)}</ul>
+                        </div>
+                        </div>
+                    </div>
+
+                    <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Previous</span>
+                    </button>
+
+                    <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span className="visually-hidden">Next</span>
+                    </button>
+                    </div>
+            ) 
+           
+            
+        }
+    // }, [])
+
+        
+
+        
+
         let list = [];
         for (let i = 0; i < dealList.length; i++) {
             list.push(dealList[i]);
@@ -14,44 +156,22 @@ import axios from "axios";
         listDisplay = list.map((deal) => {
             return (
                 <Link className="col-6 text-decoration-none mb-3" key={deal.steamAppID} to={`/games/${deal.gameID}`}>
-                <Deal deal={deal} savings={Math.floor(deal.savings)} id={deal.steamAppID}/>
+                <Deal slides={slides} setSlides={setSlides} deal={deal} savings={Math.floor(deal.savings)} id={deal.steamAppID}/>
                 </Link>
             )
         })
-       
-        // const handleLoad = () => {
-        //     pageNumber ++
-        //     axios.get(`https://www.cheapshark.com/api/1.0/deals?storeID=1&pageNumber=${pageNumber}&pageSize=10`)
-        //     .then((response) => {
-        //     // console.log(response.data);
-        //     response.data.forEach((item) => {
-        //         list.push(item)
-        //     })
-        //     })
-        //      .catch((error) => {
-        //     console.log(error);
-        //     }); 
-        //     console.log(list);
-        //     listDisplay = list.map((deal) => {
-        //         return (
-        //             <Link className="col-6 text-decoration-none mb-3" key={deal.steamAppID} to={`/games/${deal.gameID}`}>
-        //             <Deal deal={deal} savings={Math.floor(deal.savings)} id={deal.steamAppID}/>
-        //             </Link>
-        //         )
-        //     })
-        // }
 
 
         return (
             <div>
                 <h1 className="text-center">Deals</h1>
+                {slidesDisplay}
                 <button onClick={() => {setPageNumber(pageNumber - 1)}} className="btn btn-primary">Previous</button>
                <button onClick={() => {setPageNumber(pageNumber + 1)}} className="btn btn-primary">Next</button>
                <div className="row">
                 {listDisplay}
                 
                </div>
-               {/* <button onClick={handleLoad} className="btn btn-primary">Load More</button> */}
                <button onClick={() => {setPageNumber(pageNumber - 1)}} className="btn btn-primary">Previous</button>
                <button onClick={() => {setPageNumber(pageNumber + 1)}} className="btn btn-primary">Next</button>
             </div>
