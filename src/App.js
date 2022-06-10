@@ -32,7 +32,7 @@ function App() {
       if (choice == "add") {
         setPageNumber(pageNumber + 1);
       } else {
-        setPageNumber();
+        setPageNumber(0);
       }
     }
   };
