@@ -7,17 +7,14 @@ import Game from './components/Game';
 import SearchResult from './components/SearchResult';
 
 // to do:
-// prevent -1 page
-// fade background for the store list
-// link to each store
+
 // style
-// same card size
 // price at bottom
 // font and text style
-// set total result and page number
+// set total result
 // empty research field
-// slide show click to detail
 // slide show improve
+// clean up code
 
 function App() {
   const [dealList, setDealList] = useState()
@@ -38,8 +35,20 @@ function App() {
     }); 
   }, [pageNumber])
 
-  const handleSearch = () => {
-    console.log("click");
+  const handlePageChange = (choice) => {
+    if (pageNumber > 0 ) {
+      if (choice == "add") {
+        setPageNumber(pageNumber + 1)
+      } else {
+        setPageNumber(pageNumber - 1)
+      }
+    } else {
+      if (choice == "add") {
+        setPageNumber(pageNumber + 1)
+      } else {
+        setPageNumber()
+      }
+    }
   }
 
 
@@ -48,22 +57,22 @@ function App() {
 
 
   return (
-    <div className="App">
-      <nav className='navbar navbar-dark bg-dark'>
+    <div className="App" style={{ background: '#fadde1', color: '#2d00f7' }}>
+      <nav className='navbar' style={{ background: '#bde0fe'}}>
         <Link className='nav-link text-primary active' to="/">
-          <h1>Home</h1>
+          <h1>Shark Sale</h1>
         </Link>
        
         <form className='row'>
           <input  onChange={(e) => {setSearch(e.target.value)}} className='form-control col' type="text" />
-          <Link  className='col' to={`/search/${search}`}>
-          <input className="btn btn-primary"  value="Search" type="submit" />
+          <Link  className='col ps-0' to={`/search/${search}`}>
+          <input className="btn btn-primary"  value="Search" type="submit" style={{ background: '#ff9f1c', border:"none" }} />
           </Link>
         </form>
       </nav>
     
       <Routes>
-        <Route exact path='/' element={(dealList) ? <Home dealList={dealList} pageNumber={pageNumber} setPageNumber={setPageNumber} /> : <h1>loading</h1> } />
+        <Route exact path='/' element={(dealList) ? <Home handlePageChange={handlePageChange} dealList={dealList} pageNumber={pageNumber} setPageNumber={setPageNumber} /> : <h1>loading</h1> } />
         <Route path='/games/:game' element={<Game />}/>
         <Route path='/search/:title' element={<SearchResult />} />
       </Routes>

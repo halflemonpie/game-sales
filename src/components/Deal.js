@@ -38,7 +38,7 @@ export default function Deal ({deal, savings, id, slides, setSlides}) {
 
     return (
         
-            <div className="card bg-dark" >
+            <div style={{ background: '#a2d2ff', color: '#2d00f7' }} className="card mb-2" >
                 <div className="card-body">
                 <h5 className="card-title fw-bold" >{deal.title}</h5>
                 <p className="card-text"><s>{deal.normalPrice}</s></p>

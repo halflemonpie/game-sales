@@ -5,11 +5,12 @@ import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
- function Home ({dealList, pageNumber, setPageNumber}) {
+ function Home ({dealList, pageNumber, setPageNumber, handlePageChange}) {
+
         const [slides, setSlides] = useState([]);
         let slidesDisplay;
 
-        // useEffect(() => {
+
 
         
         if (slides.length > 0) {
@@ -19,15 +20,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
             const tags = slidesShow.map((item) => {
                 return item.genres
             })
-            console.log(tags);
 
             const handleTags = (index) => {
                 const tag = tags[index].map((item) => {
-                    return <li class="btn btn-primary mr-10">{item.description}</li>
+                    return <li class="btn btn-primary mx-1">{item.description}</li>
                 })
                 return tag
             }
-
 
 
             slidesDisplay = (
@@ -45,15 +44,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
                         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="9" aria-label="Slide 10"></button>
                     </div>
                     <div className="carousel-inner">
+                        <a href={`https://store.steampowered.com/app/${slidesShow[0].steam_appid}`} target="_blank">
                         <div className="carousel-item active">
                         <img src={slidesShow[0].header_image} className="d-block w-100" alt="..." />
                         <div className="carousel-caption d-none d-md-block bg-dark bg-gradient bg-opacity-25">
                             <h5>{slidesShow[0].name}</h5>
                             <ul>{handleTags(0)}</ul>
-                            
                         </div>
                         </div>
+                        </a>
 
+                        <a href={`https://store.steampowered.com/app/${slidesShow[1].steam_appid}`} target="_blank">
                         <div className="carousel-item">
                         <img src={slidesShow[1].header_image}  className="d-block w-100" alt="..." />
                         <div className="carousel-caption d-none d-md-block bg-dark bg-gradient bg-opacity-25">
@@ -61,7 +62,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
                             <ul>{handleTags(1)}</ul>
                         </div>
                         </div>
+                        </a>
 
+                        <a href={`https://store.steampowered.com/app/${slidesShow[2].steam_appid}`} target="_blank">
                         <div className="carousel-item">
                         <img src={slidesShow[2].header_image}  className="d-block w-100" alt="..." />
                         <div className="carousel-caption d-none d-md-block bg-dark bg-gradient bg-opacity-25">
@@ -69,7 +72,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
                             <ul>{handleTags(2)}</ul>
                         </div>
                         </div>
+                        </a>
 
+                        <a href={`https://store.steampowered.com/app/${slidesShow[3].steam_appid}`} target="_blank">
                         <div className="carousel-item">
                         <img src={slidesShow[3].header_image}  className="d-block w-100" alt="..." />
                         <div className="carousel-caption d-none d-md-block bg-dark bg-gradient bg-opacity-25">
@@ -77,7 +82,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
                             <ul>{handleTags(3)}</ul>
                         </div>
                         </div>
+                        </a>
 
+                        <a href={`https://store.steampowered.com/app/${slidesShow[4].steam_appid}`} target="_blank">
                         <div className="carousel-item">
                         <img src={slidesShow[4].header_image}  className="d-block w-100" alt="..." />
                         <div className="carousel-caption d-none d-md-block bg-dark bg-gradient bg-opacity-25">
@@ -85,7 +92,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
                             <ul>{handleTags(4)}</ul>
                         </div>
                         </div>
+                        </a>
 
+                        <a href={`https://store.steampowered.com/app/${slidesShow[5].steam_appid}`} target="_blank">
                         <div className="carousel-item">
                         <img src={slidesShow[5].header_image}  className="d-block w-100" alt="..." />
                         <div className="carousel-caption d-none d-md-block bg-dark bg-gradient bg-opacity-25">
@@ -93,7 +102,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
                             <ul>{handleTags(5)}</ul>
                         </div>
                         </div>
+                        </a>
 
+                        <a href={`https://store.steampowered.com/app/${slidesShow[6].steam_appid}`} target="_blank">
                         <div className="carousel-item">
                         <img src={slidesShow[6].header_image}  className="d-block w-100" alt="..." />
                         <div className="carousel-caption d-none d-md-block bg-dark bg-gradient bg-opacity-25">
@@ -101,7 +112,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
                             <ul>{handleTags(6)}</ul>
                         </div>
                         </div>
+                        </a>
 
+                        <a href={`https://store.steampowered.com/app/${slidesShow[7].steam_appid}`} target="_blank">
                         <div className="carousel-item">
                         <img src={slidesShow[7].header_image}  className="d-block w-100" alt="..." />
                         <div className="carousel-caption d-none d-md-block bg-dark bg-gradient bg-opacity-25">
@@ -109,7 +122,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
                             <ul>{handleTags(7)}</ul>
                         </div>
                         </div>
+                        </a>
 
+                        <a href={`https://store.steampowered.com/app/${slidesShow[8].steam_appid}`} target="_blank">
                         <div className="carousel-item">
                         <img src={slidesShow[8].header_image}  className="d-block w-100" alt="..." />
                         <div className="carousel-caption d-none d-md-block bg-dark bg-gradient bg-opacity-25">
@@ -117,7 +132,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
                             <ul>{handleTags(8)}</ul>
                         </div>
                         </div>
+                        </a>
 
+                        <a href={`https://store.steampowered.com/app/${slidesShow[9].steam_appid}`} target="_blank">
                         <div className="carousel-item">
                         <img src={slidesShow[9].header_image}  className="d-block w-100" alt="..." />
                         <div className="carousel-caption d-none d-md-block bg-dark bg-gradient bg-opacity-25">
@@ -125,6 +142,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
                             <ul>{handleTags(9)}</ul>
                         </div>
                         </div>
+                        </a>
                     </div>
 
                     <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
@@ -141,7 +159,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
            
             
         }
-    // }, [])
 
         
 
@@ -151,7 +168,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
         for (let i = 0; i < dealList.length; i++) {
             list.push(dealList[i]);
         }
-        // console.log(list);
         let listDisplay;
         listDisplay = list.map((deal) => {
             return (
@@ -164,16 +180,21 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
         return (
             <div>
-                <h1 className="text-center">Deals</h1>
                 {slidesDisplay}
-                <button onClick={() => {setPageNumber(pageNumber - 1)}} className="btn btn-primary">Previous</button>
-               <button onClick={() => {setPageNumber(pageNumber + 1)}} className="btn btn-primary">Next</button>
+                <h1 style={{ color: '#2d00f7' }} className="text-center mt-4" >Deals</h1>
+                <div className="d-flex justify-content-around my-4"> 
+                <button style={{ background: '#ff9f1c', border:"none"}} onClick={() => {handlePageChange('min')}} className="btn btn-primary">Previous</button>
+                <span style={{ background: '#ff9f1c', border:"none"}} className="btn btn-primary">Page: {pageNumber + 1}</span>
+                <button style={{ background: '#ff9f1c', border:"none"}} onClick={() => {handlePageChange('add')}} className="btn btn-primary">Next</button>
+                </div>
                <div className="row">
                 {listDisplay}
-                
                </div>
-               <button onClick={() => {setPageNumber(pageNumber - 1)}} className="btn btn-primary">Previous</button>
-               <button onClick={() => {setPageNumber(pageNumber + 1)}} className="btn btn-primary">Next</button>
+               <div className="d-flex justify-content-around my-2"> 
+                <button style={{ background: '#ff9f1c', border:"none"}} onClick={() => {handlePageChange('min')}} className="btn btn-primary">Previous</button>
+                <span style={{ background: '#ff9f1c', border:"none"}} className="btn btn-primary">Page: {pageNumber + 1}</span>
+                <button style={{ background: '#ff9f1c', border:"none"}} onClick={() => {handlePageChange('add')}} className="btn btn-primary">Next</button>
+                </div>
             </div>
         )
 
