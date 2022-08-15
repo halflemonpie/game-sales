@@ -124,6 +124,7 @@ function Home({ dealList, pageNumber, handlePageChange }) {
           <a
             href={`https://store.steampowered.com/app/${slidesShow[0].steam_appid}`}
             target="_blank"
+            rel="noreferrer"
           >
             <div className="carousel-item active">
               <img
@@ -141,6 +142,7 @@ function Home({ dealList, pageNumber, handlePageChange }) {
           <a
             href={`https://store.steampowered.com/app/${slidesShow[1].steam_appid}`}
             target="_blank"
+            rel="noreferrer"
           >
             <div className="carousel-item">
               <img
@@ -158,6 +160,7 @@ function Home({ dealList, pageNumber, handlePageChange }) {
           <a
             href={`https://store.steampowered.com/app/${slidesShow[2].steam_appid}`}
             target="_blank"
+            rel="noreferrer"
           >
             <div className="carousel-item">
               <img
@@ -175,6 +178,7 @@ function Home({ dealList, pageNumber, handlePageChange }) {
           <a
             href={`https://store.steampowered.com/app/${slidesShow[3].steam_appid}`}
             target="_blank"
+            rel="noreferrer"
           >
             <div className="carousel-item">
               <img
@@ -192,6 +196,7 @@ function Home({ dealList, pageNumber, handlePageChange }) {
           <a
             href={`https://store.steampowered.com/app/${slidesShow[4].steam_appid}`}
             target="_blank"
+            rel="noreferrer"
           >
             <div className="carousel-item">
               <img
@@ -209,6 +214,7 @@ function Home({ dealList, pageNumber, handlePageChange }) {
           <a
             href={`https://store.steampowered.com/app/${slidesShow[5].steam_appid}`}
             target="_blank"
+            rel="noreferrer"
           >
             <div className="carousel-item">
               <img
@@ -226,6 +232,7 @@ function Home({ dealList, pageNumber, handlePageChange }) {
           <a
             href={`https://store.steampowered.com/app/${slidesShow[6].steam_appid}`}
             target="_blank"
+            rel="noreferrer"
           >
             <div className="carousel-item">
               <img
@@ -243,6 +250,7 @@ function Home({ dealList, pageNumber, handlePageChange }) {
           <a
             href={`https://store.steampowered.com/app/${slidesShow[7].steam_appid}`}
             target="_blank"
+            rel="noreferrer"
           >
             <div className="carousel-item">
               <img
@@ -260,6 +268,7 @@ function Home({ dealList, pageNumber, handlePageChange }) {
           <a
             href={`https://store.steampowered.com/app/${slidesShow[8].steam_appid}`}
             target="_blank"
+            rel="noreferrer"
           >
             <div className="carousel-item">
               <img
@@ -277,6 +286,7 @@ function Home({ dealList, pageNumber, handlePageChange }) {
           <a
             href={`https://store.steampowered.com/app/${slidesShow[9].steam_appid}`}
             target="_blank"
+            rel="noreferrer"
           >
             <div className="carousel-item">
               <img

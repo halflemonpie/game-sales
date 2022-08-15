@@ -23,13 +23,13 @@ function App() {
 
   const handlePageChange = (choice) => {
     if (pageNumber > 0) {
-      if (choice == "add") {
+      if (choice === "add") {
         setPageNumber(pageNumber + 1);
       } else {
         setPageNumber(pageNumber - 1);
       }
     } else {
-      if (choice == "add") {
+      if (choice === "add") {
         setPageNumber(pageNumber + 1);
       } else {
         setPageNumber(0);

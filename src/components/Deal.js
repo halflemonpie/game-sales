@@ -14,6 +14,7 @@ export default function Deal({ deal, savings, id, slides }) {
         setGames(response.data[id].data);
         slides.push(response.data[id].data);
       });
+      // eslint-disable-next-line
   }, []);
 
   let detail;
@@ -23,7 +24,7 @@ export default function Deal({ deal, savings, id, slides }) {
     detail = (
       <div>
         <p>{short_description}</p>
-        <img src={header_image} className="card-img-bottom" />
+        <img src={header_image} className="card-img-bottom" alt={deal.title}/>
       </div>
     );
   } else {

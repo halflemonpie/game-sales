@@ -16,6 +16,7 @@ export default function GameDetail() {
 
   useEffect(() => {
     cheapSharkCall();
+    // eslint-disable-next-line
   }, []);
 
   let list;
@@ -30,6 +31,7 @@ export default function GameDetail() {
           <img
             className="card-img-top"
             src={`https://www.cheapshark.com/img/stores/logos/${deal.storeID}.png`}
+            alt={current.info.title}
           />
 
           <div className="card-body">
@@ -51,7 +53,7 @@ export default function GameDetail() {
   return (
     <div className="d-flex flex-column justify-content-center">
       {current ? (
-        <img className="text-center" src={current.info.thumb} />
+        <img className="text-center" src={current.info.thumb} alt={current.info.title}/>
       ) : (
         <h1>loading</h1>
       )}
@@ -66,6 +68,7 @@ export default function GameDetail() {
           className="text-center btn"
           href={`https://store.steampowered.com/app/${current.info.steamAppID}`}
           target="_blank"
+          rel="noreferrer"
         >
           <i class="fa-brands fa-steam"></i>steam page
         </a>
