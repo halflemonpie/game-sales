@@ -8,7 +8,7 @@ export default function Deal({ deal, savings, id, slides }) {
   useEffect(() => {
     axios
       .get(
-        `https://cors-anywhere.herokuapp.com/https://store.steampowered.com/api/appdetails?appids=${id}`
+        `https://store.steampowered.com/api/appdetails?appids=${id}`
       )
       .then((response) => {
         setGames(response.data[id].data);
