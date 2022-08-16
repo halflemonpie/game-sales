@@ -5,16 +5,18 @@ import Loading from "./Loading";
 export default function Deal({ deal, savings, id, slides }) {
   const [games, setGames] = useState();
 
+
   useEffect(() => {
     axios
       .get(
-        `https://store.steampowered.com/api/appdetails?appids=${id}`
+        `https://shark-sales-server.herokuapp.com/${id}`
       )
       .then((response) => {
+        console.log(response.data[id].data);
         setGames(response.data[id].data);
         slides.push(response.data[id].data);
       });
-      // eslint-disable-next-line
+    // eslint-disable-next-line
   }, []);
 
   let detail;
@@ -24,7 +26,7 @@ export default function Deal({ deal, savings, id, slides }) {
     detail = (
       <div>
         <p>{short_description}</p>
-        <img src={header_image} className="card-img-bottom" alt={deal.title}/>
+        <img src={header_image} className="card-img-bottom" alt={deal.title} />
       </div>
     );
   } else {
